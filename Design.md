@@ -1,0 +1,5 @@
+For our design, we used an array of lists to represent the topological graph.
+
+Each spot in the array represents a task, and each task points to a list which contains it's predecessors (i.e. the list at spot 0 contains the predecessors for task number 1).
+
+For our algorithm, we look at each list in the array. First we check to see, if the number we're currently looking at is already in our answer. To do this we call the function contains() which runs through the array of answers and returns true if the there. If the current number is already in our answers, we move on to the next list in our array. Otherwise, we check to see if the list we're pointing to is empty. If the list is empty, then the current number does not have any predecessors and should be added to our answers array. In this step we also remove the current number from all the other lists and increment the variable answer which keeps track of the number of tasks we have put in our answers array. If our current list is one that is not empty, we continue. Once we have iterated through the array we repeat the process if we haven't filled up our answers array.
